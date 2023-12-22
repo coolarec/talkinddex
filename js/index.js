@@ -5,8 +5,12 @@ function searchInfo() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
+                var p = document.createElement('p');
+                p.innerHTML="历史评论";
+                p.className = 'title';
                 var res = JSON.parse(xhr.responseText)['data'];
                 continer.innerHTML = '';
+                continer.appendChild(p);
                 res.forEach(function(data) {
                     var section = document.createElement('section');
                     section.className = 'message -left';
@@ -18,14 +22,16 @@ function searchInfo() {
 
                     section.appendChild(divBalloon);
                     continer.appendChild(section);
+                    
                 });
+
             } else {
                 console.error('Request failed with status:', xhr.status);
             }
         }
     };
 
-    xhr.open('GET', 'https://talkw.coolarec.link/api/comment?type=recent', true);
+    xhr.open('GET', 'https://talkw.coolarec.link/api/comment?type=recent&count=50', true);
     xhr.send();
 }
 function send() {
