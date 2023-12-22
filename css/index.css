@@ -1,0 +1,20 @@
+img {
+    max-width: 100%;
+}
+
+p {
+    font-size: 20px;
+}
+#ID-demo-layer-direction-t{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+}
+.layui-layer{
+    background: rgba(255, 255, 255, 0.2);
+}
+.layui-layer-title{
+    backdrop-filter: blur(8px);
+}
+section{
+    margin: 20px;
+}

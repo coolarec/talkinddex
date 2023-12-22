@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <script src="//unpkg.com/layui@2.9.2/dist/layui.js"></script>
+    <link href="//unpkg.com/layui@2.9.2/dist/css/layui.css" rel="stylesheet">
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+    <div style="display: flex;    flex-direction: column;
+    align-items: center;">
+        <div class="nes-container is-rounded" style="width: 80%;margin: 30px auto;">
+            <p class="title">评论系统</p>
+            <div class="lists">
+                <ul class="nes-list is-disc">
+                    <li>你好！</li>
+                    <li>我见过面或未曾见面的朋友们</li>
+                    <li>你愿意为我停留一次</li>
+                    <li>和我聊聊你或我的事情吗？</li>
+                </ul>
+            </div>
+
+
+            <script>
+                layui.use(function () {
+                    var layer = layui.layer;
+                    var util = layui.util;
+                    var $ = layui.$;
+                    // 事件
+                    util.on('lay-on', {
+                        'test-offset-t': function () {
+                            layer.open({
+                                type: 1,
+                                offset: 't',
+                                anim: 'slideDown', // 从上往下
+                                area: ['100%', '100%'],
+                                shade: 0.1,
+                                shadeClose: true,
+                                id: 'ID-demo-layer-direction-t',
+                                content: '<div style="width: 80%;margin: 20px auto;" class="nes-container is-dark with-title" id="myElement">\
+                                            <p class="title">发送消息🚀</p>\
+            <div class="nes-field">\
+                <label for="name_field">不填默认匿名</label>\
+                <input type="text" id="nickname" class="nes-input">\
+            </div>\
+            <label for="textarea_field">写点什么吧</label>\
+            <textarea id="comment" class="nes-textarea" rows="10"></textarea>\
+            <button type="button" class="nes-btn is-primary" onclick="send()">发送🙂</button>\
+        </div>'
+                            });
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <i class="nes-pokeball" lay-on="test-offset-t"></i>
+        <script>    document.addEventListener('DOMContentLoaded', function () {
+                searchInfo();
+            });</script>
+        <div class="nes-container with-title is-centered" style="width: 80%;margin: 50px auto;" id="talk">
+            <p class="title">历史评论</p>
+                <img src="https://ts1.cn.mm.bing.net/th/id/R-C.b3221b81661167bc429aea99e2586aee?rik=ZCqpg1hJpgD3sw&riu=http%3a%2f%2fwww.yilewan.com%2fresource%2fetpResource%2fimages%2floading.gif&ehk=8SSR9kfkOSDuMCmwSXdkARULQTCCBAfqtvnDIdciFyU%3d&risl=&pid=ImgRaw&r=0" alt="adads">
+        </div>
+    </div>
+</body>
+
+</html>
