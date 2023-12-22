@@ -15,8 +15,6 @@ function searchInfo() {
                     var divBalloon = document.createElement('div');
                     divBalloon.className = 'nes-balloon from-left';
                     divBalloon.innerHTML = data.comment; // 使用评论数据中的内容
-                    
-                    
 
                     section.appendChild(divBalloon);
                     continer.appendChild(section);
@@ -41,13 +39,18 @@ function send() {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
-          console.log('评论发送成功:', xhr.responseText);
+            var info=JSON.parse(xhr.responseText)['errmsg'];
+            if(info){
+                layer.msg(info, {icon: 3});
+            } else{
+                layer.msg('你的消息我已经收到啦！', {icon: 1});
+            }
+          console.log(JSON.parse(xhr.responseText)['errmsg']);
 
-        } else {
-          console.error('发送评论时出现错误');
         }
       }
     };
     const data = JSON.stringify({"comment":userComment,"nick":nickname,"mail":"","link":"","url":"/","ua":""});
     xhr.send(data);
+    layer.close(index);
   }

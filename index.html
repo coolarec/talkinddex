@@ -29,6 +29,7 @@
 
 
             <script>
+                var index;
                 layui.use(function () {
                     var layer = layui.layer;
                     var util = layui.util;
@@ -36,24 +37,25 @@
                     // 事件
                     util.on('lay-on', {
                         'test-offset-t': function () {
-                            layer.open({
+                            index = layer.open({
                                 type: 1,
                                 offset: 't',
                                 anim: 'slideDown', // 从上往下
                                 area: ['100%', '100%'],
                                 shade: 0.1,
                                 shadeClose: true,
+                                skin: 'sendinfo',
                                 id: 'ID-demo-layer-direction-t',
                                 content: '<div style="width: 80%;margin: 20px auto;" class="nes-container is-dark with-title" id="myElement">\
                                             <p class="title">发送消息🚀</p>\
-            <div class="nes-field">\
-                <label for="name_field">不填默认匿名</label>\
-                <input type="text" id="nickname" class="nes-input">\
-            </div>\
-            <label for="textarea_field">写点什么吧</label>\
-            <textarea id="comment" class="nes-textarea" rows="10"></textarea>\
-            <button type="button" class="nes-btn is-primary" onclick="send()">发送🙂</button>\
-        </div>'
+                                            <div class="nes-field">\
+                                            <label for="name_field">不填默认匿名</label>\
+                                            <input type="text" id="nickname" class="nes-input">\
+                                        </div>\
+                                        <label for="textarea_field">写点什么吧</label>\
+                                        <textarea id="comment" class="nes-textarea" rows="10"></textarea>\
+                                        <button type="button" class="nes-btn is-primary" onclick="send()">发送🙂</button>\
+                                    </div>'
                             });
                         }
                     });
