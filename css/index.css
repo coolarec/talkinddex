@@ -16,7 +16,7 @@ p {
     backdrop-filter: blur(8px);
 }
 section{
-    margin: 20px;
+    margin: 20px 0;
 }
 .icon-list{
     display: flex;
