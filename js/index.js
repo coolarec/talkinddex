@@ -81,6 +81,7 @@ function sendInfo() {
     };
     const data = JSON.stringify({ 'at':'匿名',"comment": userComment, "mail": "","nick": nickname,"pid": pid ,'rid':pid,'ua':"",'url':"me"});
     xhr.send(data);
+    searchInfo();
     layer.closeAll();
 }
 
@@ -111,7 +112,7 @@ function infodiv(mypid,tname) {
                 <label for="name_field">不填默认匿名</label>\
                 <input type="text" id="nickname" class="nes-input">\
             </div>\
-            <label for="textarea_field">写点什么吧<i class="snes-jp-logo"></i></label>\
+            <label for="textarea_field">写点什么吧</label>\
             <textarea id="comment" class="nes-textarea" rows="10"  placeholder="评论开启了审核系统，所以并不会实时显示" style="font-size:17px;"></textarea>\
             <button type="button" class="nes-btn is-primary" onclick="sendInfo()">发送🙂</button>\
         </div>'
