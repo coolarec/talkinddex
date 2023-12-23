@@ -3,7 +3,7 @@ img {
 }
 
 p {
-    font-size: 20px;
+    font-size: 1.1em;
 }
 #ID-demo-layer-direction-t{
     background: rgba(255, 255, 255, 0.2);
@@ -24,4 +24,7 @@ section{
     justify-content: space-evenly;
     align-items: center;
     transform: scale(0.8);
+}
+section.message.-right {
+    transform: scale(.8);
 }
