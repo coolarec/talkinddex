@@ -18,3 +18,9 @@ p {
 section{
     margin: 20px;
 }
+.icon-list{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}

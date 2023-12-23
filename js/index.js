@@ -1,17 +1,17 @@
 function searchInfo() {
     var continer = document.querySelector('#talk');
     var xhr = new XMLHttpRequest();
-    
-    xhr.onreadystatechange = function() {
+
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 var p = document.createElement('p');
-                p.innerHTML="历史评论";
+                p.innerHTML = "历史评论";
                 p.className = 'title';
-                var res = JSON.parse(xhr.responseText)['data'];
+                var res = JSON.parse(xhr.responseText)['data']['data'];
                 continer.innerHTML = '';
                 continer.appendChild(p);
-                res.forEach(function(data) {
+                res.forEach(function (data) {
                     var section = document.createElement('section');
                     section.className = 'message -left';
 
@@ -22,7 +22,7 @@ function searchInfo() {
 
                     section.appendChild(divBalloon);
                     continer.appendChild(section);
-                    
+
                 });
 
             } else {
@@ -31,11 +31,11 @@ function searchInfo() {
         }
     };
 
-    xhr.open('GET', 'https://talkw.coolarec.link/api/comment?type=recent&count=50', true);
+    xhr.open('GET', 'https://talkw.coolarec.link/api/comment?path=me&count=50', true);
     xhr.send();
 }
 function send() {
-    const nickname = document.getElementById('nickname').value||"匿名";
+    const nickname = document.getElementById('nickname').value || "匿名";
     const userComment = document.getElementById('comment').value;
 
     const xhr = new XMLHttpRequest();
@@ -43,20 +43,30 @@ function send() {
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-            var info=JSON.parse(xhr.responseText)['errmsg'];
-            if(info){
-                layer.msg(info, {icon: 3});
-            } else{
-                layer.msg('你的消息我已经收到啦！', {icon: 1});
-            }
-          console.log(JSON.parse(xhr.responseText)['errmsg']);
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var info = JSON.parse(xhr.responseText)['errmsg'];
+                if (info) {
+                    layer.msg(info, { icon: 3 });
+                } else {
+                    layer.msg('你的消息我已经收到啦！', { icon: 1 });
+                }
+                console.log(JSON.parse(xhr.responseText)['errmsg']);
 
+            }
         }
-      }
     };
-    const data = JSON.stringify({"comment":userComment,"nick":nickname,"mail":"","link":"","url":"/","ua":""});
+    const data = JSON.stringify({ "comment": userComment, "nick": nickname, "mail": "", "link": "", "url": "me", "ua": "" });
     xhr.send(data);
     layer.close(index);
-  }
+}
+
+win10 = function (win10text) {
+    layer.alert('Windows 10 风格主题', {
+        skin: 'layui-layer-win10', // 2.8+
+        shade: 0.01,
+        btn: ['确定', '取消'],
+        title:"警告",
+        content:win10text,
+    })
+};
