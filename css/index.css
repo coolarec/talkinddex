@@ -28,3 +28,6 @@ section{
 section.message.-right {
     transform: scale(.8);
 }
+.nes-balloon{
+    padding: .5rem 1rem;
+}
