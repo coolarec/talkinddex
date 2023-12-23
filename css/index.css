@@ -27,6 +27,7 @@ section{
 }
 section.message.-right {
     transform: scale(.8);
+    margin-top: -25px;
 }
 .nes-balloon{
     padding: .5rem 1rem;
