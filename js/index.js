@@ -27,6 +27,7 @@ function searchInfo() {
 
                     // 添加点击事件监听器
                     divBalloon.addEventListener('click', function () {
+                        nick=div.getAttribute('nick')
                         infodiv(div.id, '回复给→' + div.getAttribute('nick'));
                     });
 
@@ -100,7 +101,6 @@ win10 = function (win10text) {
 };
 function infodiv(mypid, tname) {
     pid = mypid;
-    nick= tname;
     layer.open({
         type: 1,
         offset: 't',
