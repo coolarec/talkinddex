@@ -27,13 +27,13 @@ function searchInfo() {
 
                     // 添加点击事件监听器
                     divBalloon.addEventListener('click', function () {
-                        infodiv(div.id,'回复给→'+div.getAttribute('nick'));
+                        infodiv(div.id, '回复给→' + div.getAttribute('nick'));
                     });
 
                     var child = data['children'];
                     section.appendChild(divBalloon);
                     div.appendChild(section);
-                    
+
                     child.forEach(function (childdata) {
                         var section1 = document.createElement('section');
                         section1.className = 'message -right';
@@ -43,6 +43,9 @@ function searchInfo() {
                         section1.appendChild(div1);
                         div.appendChild(section1);
                     });
+                    var hr = document.createElement('hr');
+
+                    div.appendChild(hr);
 
                     continer.appendChild(div);
 
@@ -79,10 +82,11 @@ function sendInfo() {
             }
         }
     };
-    const data = JSON.stringify({ 'at':'匿名',"comment": userComment, "mail": "","nick": nickname,"pid": pid ,'rid':pid,'ua':"",'url':"me"});
+    const data = JSON.stringify({ 'at': '匿名', "comment": userComment, "mail": "", "nick": nickname, "pid": pid, 'rid': pid, 'ua': "", 'url': "me" });
     xhr.send(data);
-    searchInfo();
+    
     layer.closeAll();
+    setTimeout(searchInfo,2000);
 }
 
 win10 = function (win10text) {
@@ -94,8 +98,8 @@ win10 = function (win10text) {
         content: win10text,
     })
 };
-function infodiv(mypid,tname) {
-    pid=mypid;
+function infodiv(mypid, tname) {
+    pid = mypid;
     layer.open({
         type: 1,
         offset: 't',
@@ -113,7 +117,7 @@ function infodiv(mypid,tname) {
                 <input type="text" id="nickname" class="nes-input">\
             </div>\
             <label for="textarea_field">写点什么吧</label>\
-            <textarea id="comment" class="nes-textarea" rows="10"  placeholder="评论开启了审核系统，所以并不会实时显示" style="font-size:17px;"></textarea>\
+            <textarea id="comment" class="nes-textarea" rows="10"  placeholder="随便写点什么吧！" style="font-size:17px;"></textarea>\
             <button type="button" class="nes-btn is-primary" onclick="sendInfo()">发送🙂</button>\
         </div>'
     });
