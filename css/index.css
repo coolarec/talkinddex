@@ -35,7 +35,7 @@ section.message.-right {
 }
 .nes-pokeball{
     animation-name:bigger;
-    animation-duration: 0.8s;
+    animation-duration: 0.5s;
     animation-direction:alternate;
     animation-iteration-count:infinite;
 }
