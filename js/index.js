@@ -1,4 +1,4 @@
-var pid,nick;
+var pid, nick, sendInfoElements;
 function searchInfo() {
     var continer = document.querySelector('#talk');
     var xhr = new XMLHttpRequest();
@@ -25,9 +25,8 @@ function searchInfo() {
                     divBalloon.className = 'nes-balloon from-left';
                     divBalloon.innerHTML = data.comment;
 
-                    // 添加点击事件监听器
                     divBalloon.addEventListener('click', function () {
-                        nick=div.getAttribute('nick')
+                        nick = div.getAttribute('nick')
                         infodiv(div.id, '回复给→' + div.getAttribute('nick'));
                     });
 
@@ -85,9 +84,10 @@ function sendInfo() {
     };
     const data = JSON.stringify({ 'at': nick, "comment": userComment, "mail": "", "nick": nickname, "pid": pid, 'rid': pid, 'ua': "", 'url': "me" });
     xhr.send(data);
-    
+
     layer.closeAll();
-    setTimeout(searchInfo,2000);
+
+    setTimeout(searchInfo, 2000);
 }
 
 win10 = function (win10text) {
@@ -99,7 +99,11 @@ win10 = function (win10text) {
         content: win10text,
     })
 };
+
+
 function infodiv(mypid, tname) {
+
+    document.body.style.overflow = 'hidden';
     pid = mypid;
     layer.open({
         type: 1,
@@ -122,4 +126,17 @@ function infodiv(mypid, tname) {
             <button type="button" class="nes-btn is-primary" onclick="sendInfo()">发送🙂</button>\
         </div>'
     });
+    parentElement = document.querySelector('.sendinfo');
+
+    specificChildElement = document.getElementById('myElement');
+
+    parentElement.addEventListener('click', function (event) {
+        if (event.target !== specificChildElement && !specificChildElement.contains(event.target)) {
+            layer.closeAll();
+            document.body.style.overflow = 'auto';
+        }
+    });
 }
+
+
+
