@@ -122,7 +122,7 @@ function infodiv(mypid, tname) {
                 <input type="text" id="nickname" class="nes-input">\
             </div>\
             <label for="textarea_field">写点什么吧</label>\
-            <textarea id="comment" class="nes-textarea" rows="10"  placeholder="随便写点什么吧！" style="font-size:17px;"></textarea>\
+            <textarea id="comment" class="nes-textarea" rows="6"  placeholder="随便写点什么吧！" style="font-size:17px;"></textarea>\
             <button type="button" class="nes-btn is-primary" onclick="sendInfo()">发送🙂</button>\
         </div>'
     });
