@@ -86,8 +86,8 @@ function sendInfo() {
     xhr.send(data);
 
     layer.closeAll();
-
-    setTimeout(searchInfo, 2000);
+    document.body.style.overflow = 'auto';
+    setTimeout(searchInfo, 1000);
 }
 
 win10 = function (win10text) {
