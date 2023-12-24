@@ -1,4 +1,4 @@
-var pid;
+var pid,nick;
 function searchInfo() {
     var continer = document.querySelector('#talk');
     var xhr = new XMLHttpRequest();
@@ -82,7 +82,7 @@ function sendInfo() {
             }
         }
     };
-    const data = JSON.stringify({ 'at': '匿名', "comment": userComment, "mail": "", "nick": nickname, "pid": pid, 'rid': pid, 'ua': "", 'url': "me" });
+    const data = JSON.stringify({ 'at': nick, "comment": userComment, "mail": "", "nick": nickname, "pid": pid, 'rid': pid, 'ua': "", 'url': "me" });
     xhr.send(data);
     
     layer.closeAll();
@@ -100,6 +100,7 @@ win10 = function (win10text) {
 };
 function infodiv(mypid, tname) {
     pid = mypid;
+    nick= tname;
     layer.open({
         type: 1,
         offset: 't',
